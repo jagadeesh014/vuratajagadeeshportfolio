@@ -13,36 +13,13 @@ export default function ResumeModal({ isOpen, onClose }) {
       origin: { y: 0.6 }
     });
 
-    // Create a simulated PDF download / print action
-    const element = document.createElement("a");
-    const file = new Blob([
-      `==================================================\n` +
-      `             VURATA JAGADEESH                     \n` +
-      ` Application Developer | Web Developer | Database  \n` +
-      ` Email: jagadeesh.vurata@example.com              \n` +
-      ` Location: Hyderabad, Telangana, India            \n` +
-      `==================================================\n\n` +
-      `SUMMARY\n` +
-      `Results-driven Application, Web & Database Developer with 3+ years of experience designing scalable enterprise web software, optimizing complex database systems, and building responsive user interfaces.\n\n` +
-      `TECHNICAL SKILLS\n` +
-      `* Web: JavaScript (ES6+), React.js, Vite, HTML5, CSS3, REST APIs\n` +
-      `* Databases: PostgreSQL, MySQL, SQL Server, MongoDB, Query Tuning\n` +
-      `* App Dev: C#, .NET Core, Java, Python, Microservices\n` +
-      `* Tools: Git, Docker, Postman, CI/CD, Azure Cloud\n\n` +
-      `EXPERIENCE\n` +
-      `* Senior Application & Database Developer | Tech Solutions (2023 - Present)\n` +
-      `* Full Stack Web Developer | NexGen Systems (2022 - 2023)\n` +
-      `* Database & Software Engineer Intern | DataCore Tech (2021 - 2022)\n\n` +
-      `CERTIFICATIONS\n` +
-      `* AWS Certified Solutions Architect - Associate\n` +
-      `* Microsoft Certified: Azure Database Administrator\n` +
-      `* Oracle Certified Professional: MySQL 8.0 Developer\n`
-    ], { type: 'text/plain;charset=utf-8' });
-    element.href = URL.createObjectURL(file);
-    element.download = "Vurata_Jagadeesh_Resume.txt";
-    document.body.appendChild(element);
-    element.click();
-    document.body.removeChild(element);
+    // Direct download of the PDF file
+    const link = document.createElement("a");
+    link.href = "/Vurata_Jagadeesh_Resume.pdf";
+    link.download = "Vurata_Jagadeesh_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (

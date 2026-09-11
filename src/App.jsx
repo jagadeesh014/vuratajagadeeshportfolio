@@ -170,28 +170,31 @@ export default function App() {
   const projectsData = [
     {
       id: 1,
-      title: 'Kodefast Web Applications',
+      title: 'Enterprise Business Applications',
       category: 'web',
       image: '/kodefast_analytics.jpg',
-      description: 'Real-time corporate analytics dashboard for monitoring operational KPIs, team throughput, and server load with live chart visualizations.',
-      fullDescription: 'Comprehensive web application engineered for executive overview of enterprise operational metrics, database throughput, and real-time telemetry.',
+      description: 'Enterprise applications developed using KodeFast low-code/no-code platform with workflow automation.',
+      fullDescription: 'Business applications developed using KodeFast by configuring forms, entities, workflows, business rules, approvals, and reusable platform modules.',
       highlights: [
-        'Interactive real-time charts driven by WebSocket data streams.',
-        'Optimized query performance for millions of historical log records.',
-        'Exportable PDF & Excel reports generated server-side.'
+        'Application Development: Built business applications using drag-and-drop development.',
+        'Form & Entity Management: Configured forms, entities, and data structures.',
+        'Workflow Automation: Designed automated workflows and process logic.',
+        'Business Rules: Implemented business rules and approval processes.',
+        'Reusable Components: Used templates and platform modules for scalable development.',
+        'Process Optimization: Automated business processes to improve efficiency.'
       ],
-      tags: ['React', 'Vite', 'PostgreSQL', 'Node.js', 'Chart.js'],
-      dbTech: 'PostgreSQL 15, Redis Caching, Express REST API',
+      tags: ['KodeFast Low-Code / No-Code'],
+      dbTech: 'Forms, Entities, Workflows, Business Rules, Approvals',
       githubUrl: 'https://github.com/jagadeesh-vurata/analytics-dashboard',
       liveUrl: 'https://www.kodefast.com/schedule-a-demo.php'
     },
     {
       id: 2,
       title: 'Hackathon Management System – Full Stack Development',
-      category: 'database',
+      category: 'Web',
       image: '/project_hackathon.png',
-      description: 'Developer suite that analyzes SQL execution plans, diagnoses missing indexes, and automatically generates ER diagrams.',
-      fullDescription: 'A comprehensive web-based platform designed to streamline hackathon organization and management, enabling participants, organizers, judges, and sponsors to efficiently manage the complete hackathon lifecycle from registration and team formation to project submission and evaluation.',
+      description: 'Full-stack platform for managing hackathon registration, team formation, project submission, judging, and results.',
+      fullDescription: 'End-to-end full-stack web application designed to streamline the complete hackathon lifecycle for participants, organizers, judges, and sponsors.',
       highlights: [
         'Participant registration and secure login system.',
          'Team creation, member management, and team formation.',
@@ -209,18 +212,17 @@ export default function App() {
     },
     {
       id: 3,
-      title: 'Smart Inventory & Order System',
+      title: 'Python PDF Automation & Data Processing',
       category: 'app',
-      image: '/project_analytics.jpg',
-      description: 'Multi-warehouse inventory platform featuring automated reorder triggers, supplier management, and barcode scanning support.',
-      fullDescription: 'End-to-end full-stack web application used to synchronize inventory stock across multiple warehouses in real time.',
-      highlights: [
-        'Multi-tenant architecture with role-based access control.',
-        'Automated email notifications when stock drops below threshold.',
-        'REST API integration with third-party logistics services.'
+      image: '/project_automation.jpg',
+      description: 'Python automation solution for PDF data extraction, Regex-based parsing, validation, and transformation.',
+      fullDescription: 'Python-based automation application developed to extract and process structured data from PDF documents while reducing repetitive manual processing tasks.',      highlights: [
+        'Automated PDF data extraction and document processing.',
+        'Regex-based pattern recognition and structured data parsing.',
+        'Data validation, cleansing, and transformation through automation workflows.'
       ],
-      tags: ['C#', '.NET Core', 'MySQL', 'React', 'Docker'],
-      dbTech: 'MySQL 8.0 with InnoDB Cluster, Redis',
+      tags: ['Python', 'Regex', 'PDF Processing', 'Automation', 'Data Processing'],
+      dbTech: 'Structured data processing and validation',
       githubUrl: 'https://github.com/jagadeesh-vurata/inventory-management',
       liveUrl: 'https://demo-inventory.example.com'
     },

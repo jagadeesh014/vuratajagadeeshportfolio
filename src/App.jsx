@@ -190,7 +190,7 @@ export default function App() {
     },
     {
       id: 2,
-      title: 'Hackathon Management System – Full Stack Development',
+      title: 'Hackathon Management System ',
       category: 'Web',
       image: '/project_hackathon.png',
       description: 'Full-stack platform for managing hackathon registration, team formation, project submission, judging, and results.',
@@ -212,7 +212,7 @@ export default function App() {
     },
     {
       id: 3,
-      title: 'Python PDF Automation & Data Processing',
+      title: 'PDF Automation & Data Processing',
       category: 'app',
       image: '/project_automation.jpg',
       description: 'Python automation solution for PDF data extraction, Regex-based parsing, validation, and transformation.',
@@ -228,18 +228,18 @@ export default function App() {
     },
     {
       id: 4,
-      title: 'Cloud Infrastructure Health Portal',
-      category: 'web',
-      image: '/project_analytics.jpg',
-      description: 'Centralized management dashboard for tracking microservices health, database cluster replication lag, and server CPU/RAM usage.',
-      fullDescription: 'Monitoring web application providing immediate alerts and historical trend analysis for distributed cloud microservices.',
+      title: 'Rice Crop Disease Detection',
+      category: 'ML',
+      image: '/project_rice_crop.jpg',
+      description: 'Deep learning system for detecting rice crop diseases from annotated leaf images using CNN and transfer learning.',
+      fullDescription: 'Machine learning application trained on large datasets of rice crop images to accurately identify disease patterns using CNN models, transfer learning, and data augmentation techniques.',
       highlights: [
-        'Automated health check pings every 10 seconds across global nodes.',
-        'Sleek dark mode glassmorphism UI built with pure CSS and React.',
-        'Custom alert webhooks for Slack and Microsoft Teams.'
+        'Trained CNN models on annotated rice crop disease images.',
+        'Applied transfer learning and data augmentation to improve model performance.',
+        'Developed reliable disease detection across different crop conditions and disease patterns.'
       ],
-      tags: ['JavaScript', 'React', 'MongoDB', 'Docker', 'CSS3'],
-      dbTech: 'MongoDB Replica Set, Node.js Microservices',
+      tags:  ['Python', 'CNN', 'Deep Learning', 'TensorFlow', 'Transfer Learning'],
+      dbTech: 'Image dataset with annotated crop disease classifications',
       githubUrl: 'https://github.com/jagadeesh-vurata/cloud-health-portal',
       liveUrl: 'https://demo-cloudhealth.example.com'
     }

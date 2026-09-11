@@ -109,7 +109,7 @@ export default function App() {
     {
       role: 'Application Developer ',
       company: 'Hallmark Gobal  Technology Ltd.',
-      period: '2025- Present',
+      period: 'July 2025 - Present',
       location: 'Hyderabad, India',
       highlights: [
           'Developed business applications using KodeFast low-code/no-code platform leveraging drag-and drop development capabilities.',
@@ -123,7 +123,7 @@ export default function App() {
     {
       role: 'Software Engineer',
       company: 'Spiffy 9',
-      period: '2024- 2025',
+      period: 'Nov 2024- Feb 2025',
       location: 'Hyderabad, India',
       highlights: [
         'Developed Python automation scripts for extracting and processing data from PDF documents.',
@@ -161,8 +161,6 @@ export default function App() {
       icon: <Database size={24} />,
       skills: [
         { name: 'PostgreSQL & MySQL', level: 95 },
-        { name: 'Microsoft SQL Server', level: 90 },
-        { name: 'Query Optimization & Indexing', level: 92 },
         { name: 'MongoDB (NoSQL)', level: 84 }
       ]
     },
@@ -189,18 +187,23 @@ export default function App() {
     },
     {
       id: 2,
-      title: 'Database Query Optimizer & Visualizer',
+      title: 'Hackathon Management System – Full Stack Development',
       category: 'database',
-      image: '/project_analytics.jpg',
+      image: '/project_hackathon.png',
       description: 'Developer suite that analyzes SQL execution plans, diagnoses missing indexes, and automatically generates ER diagrams.',
-      fullDescription: 'An essential tool designed for database administrators and developers to inspect execution trees, pinpoint slow queries, and automate schema migrations.',
+      fullDescription: 'A comprehensive web-based platform designed to streamline hackathon organization and management, enabling participants, organizers, judges, and sponsors to efficiently manage the complete hackathon lifecycle from registration and team formation to project submission and evaluation.',
       highlights: [
-        'Execution plan visualizer with cost analysis alerts.',
-        'Automatic SQL index recommendation engine.',
-        'Export ER diagrams in SVG and PNG formats.'
+        'Participant registration and secure login system.',
+         'Team creation, member management, and team formation.',
+          'Hackathon creation and event management for organizers.',
+          'Project submission and tracking system.',
+          'Judge assignment and project evaluation with scoring.',
+          'Role-based dashboards for participants organizers, and judges.',
+          'Sponsor management and communication.',
+          'Automated notifications and hackathon status tracking.'
       ],
-      tags: ['Python', 'SQL Server', 'React', 'Electron'],
-      dbTech: 'Microsoft SQL Server, PostgreSQL, SQLite',
+      tags: ['Python, HTML5, CSS3, JavaScript, React.js'],
+      dbTech: 'Python, Django, Django REST Framework, REST APIs',
       githubUrl: 'https://github.com/jagadeesh-vurata/sql-query-optimizer',
       liveUrl: 'https://demo-sql-optimizer.example.com'
     },

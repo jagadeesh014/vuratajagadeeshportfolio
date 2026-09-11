@@ -251,37 +251,37 @@ export default function App() {
 
   const certificationsData = [
     {
-      title: 'AWS Certified Solutions Architect – Associate',
-      issuer: 'Amazon Web Services (AWS)',
-      date: 'Issued Jan 2024 • Expired Jan 2027',
-      credId: 'AWS-ASA-994821',
+      title: 'Python Automation Intern',
+      issuer: 'Spiffy9',
+      date: 'Certification Completed',
+      credId: 'Spiffy9293i82',
       icon: <Award size={28} />
     },
     {
-      title: 'Microsoft Certified: Azure Database Administrator',
-      issuer: 'Microsoft',
-      date: 'Issued Nov 2023',
-      credId: 'MSFT-DBA-549102',
+      title: 'Python Full Stack Developer Intern',
+      issuer: 'Codegnan',
+      date: 'Issued July 2023',
+      credId: 'Ikxk-VJ51tp2023',
       icon: <Database size={28} />
     },
     {
-      title: 'Oracle Certified Professional: MySQL 8.0 Developer',
-      issuer: 'Oracle Corporation',
-      date: 'Issued Aug 2023',
-      credId: 'ORCL-OCP-882103',
+      title: 'Machine Learning Intern',
+      issuer: 'Indian Servers',
+      date: 'Issued July 2022',
+      credId: 'IndServ22a999 ',
       icon: <Award size={28} />
     },
     {
-      title: 'Meta Certified Front-End Developer',
-      issuer: 'Meta / Coursera',
-      date: 'Issued Mar 2023',
-      credId: 'META-FED-332910',
+      title: 'Internet of Things',
+      issuer: 'NPTEL',
+      date: 'Issued Oct 2023',
+      credId: 'NPTEL-IOT',
       icon: <Globe size={28} />
     },
     {
-      title: 'PostgreSQL Enterprise Database Specialist',
-      issuer: 'PostgreSQL Global Development Group',
-      date: 'Issued Dec 2022',
+      title: 'Web Technologies',
+      issuer: 'APT IT Solutions',
+      date: 'Issued April 2024',
       credId: 'PG-SPEC-773120',
       icon: <Database size={28} />
     }
@@ -615,11 +615,11 @@ export default function App() {
                 </div>
                 <div className="contact-method-details">
                   <span className="contact-method-label">Email Address</span>
-                  <p className="contact-method-val">jagadeeshvurata@example.com</p>
+                  <p className="contact-method-val">jagadeeshv0114@gmail.com</p>
                 </div>
                 <button 
                   className="copy-btn" 
-                  onClick={() => copyToClipboard('jagadeeshvurata@example.com', 'email')}
+                  onClick={() => copyToClipboard('jagadeeshv0114@gmail.com', 'email')}
                   title="Copy email"
                 >
                   {copiedText === 'email' ? <Check size={18} className="text-green" /> : <Copy size={18} />}
@@ -747,7 +747,7 @@ export default function App() {
             <a href="https://twitter.com" target="_blank" rel="noreferrer" className="social-icon-btn" aria-label="Twitter" title="Twitter">
               <Share2 size={18} />
             </a>
-            <a href="mailto:jagadeesh.vurata@example.com" className="social-icon-btn" aria-label="Email" title="Email">
+            <a href="mailto:jagadeeshv0114@gmail.com" className="social-icon-btn" aria-label="Email" title="Email">
               <Mail size={18} />
             </a>
           </div>

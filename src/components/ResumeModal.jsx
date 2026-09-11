@@ -13,7 +13,7 @@ export default function ResumeModal({ isOpen, onClose }) {
       origin: { y: 0.6 }
     });
 
-    // Direct download of the PDF file
+    // Direct download of the official PDF file
     const link = document.createElement("a");
     link.href = "/Vurata_Jagadeesh_Resume.pdf";
     link.download = "Vurata_Jagadeesh_Resume.pdf";
@@ -28,7 +28,7 @@ export default function ResumeModal({ isOpen, onClose }) {
         <div className="modal-header">
           <div className="modal-title-group">
             <FileText className="text-blue" size={24} />
-            <h2>Vurata Jagadeesh - Resume Overview</h2>
+            <h2>Vurata Jagadeesh - Official Resume Overview</h2>
           </div>
           <button className="modal-close-btn" onClick={onClose} aria-label="Close modal">
             <X size={20} />
@@ -38,12 +38,12 @@ export default function ResumeModal({ isOpen, onClose }) {
         <div className="modal-body">
           <div className="resume-hero-banner">
             <div>
-              <h3>Vurata Jagadeesh</h3>
-              <p className="resume-subtitle">Application Developer | Web Developer | Database Developer</p>
-              <p className="resume-loc">📍 Hyderabad, Telangana, India • Available for Full-Time / Contract</p>
+              <h3>VURATA JAGADEESH</h3>
+              <p className="resume-subtitle">Frontend Developer & Python Developer</p>
+              <p className="resume-loc">📍 Hyderabad • +91 9014177672 • jagadeeshv0114@gmail.com</p>
             </div>
             <button className="btn-primary flex-center gap-2" onClick={handleDownload}>
-              <Download size={18} /> Download CV
+              <Download size={18} /> Download Official PDF
             </button>
           </div>
 
@@ -52,25 +52,26 @@ export default function ResumeModal({ isOpen, onClose }) {
               <h4><Briefcase size={18} className="text-blue" /> Work Experience</h4>
               <div className="resume-item">
                 <div className="resume-item-header">
-                  <strong>Senior Application & Database Developer</strong>
-                  <span className="badge-year">2023 - Present</span>
+                  <strong>Application Developer</strong>
+                  <span className="badge-year">July 2025 - Present</span>
                 </div>
-                <p className="resume-org">Tech Solutions Inc.</p>
+                <p className="resume-org">Hallmark Global Technologies Ltd</p>
                 <ul>
-                  <li>Architected scalable REST microservices handling 50,000+ daily operational requests.</li>
-                  <li>Optimized PostgreSQL database indexes, reducing query response time by 45%.</li>
+                  <li>Developed business applications using KodeFast low-code/no-code platform.</li>
+                  <li>Configured forms, entities, workflows, and business rules.</li>
+                  <li>Built automation-driven solutions to streamline workflows.</li>
                 </ul>
               </div>
 
               <div className="resume-item">
                 <div className="resume-item-header">
-                  <strong>Full Stack Web Developer</strong>
-                  <span className="badge-year">2022 - 2023</span>
+                  <strong>Software Engineer</strong>
+                  <span className="badge-year">Nov 2024 - Mar 2025</span>
                 </div>
-                <p className="resume-org">NexGen Systems</p>
+                <p className="resume-org">Spiffy 9</p>
                 <ul>
-                  <li>Engineered interactive React & Vite enterprise analytics dashboards.</li>
-                  <li>Implemented real-time data sync with WebSockets and Node.js.</li>
+                  <li>Developed Python automation scripts for extracting data from PDF documents.</li>
+                  <li>Implemented Regex-based automation for pattern recognition and parsing.</li>
                 </ul>
               </div>
             </div>
@@ -80,17 +81,25 @@ export default function ResumeModal({ isOpen, onClose }) {
               <div className="resume-item">
                 <div className="resume-item-header">
                   <strong>B.Tech in Computer Science & Engineering</strong>
-                  <span className="badge-year">2018 - 2022</span>
+                  <span className="badge-year">2020 - 2024</span>
                 </div>
-                <p className="resume-org">First Class with Distinction (GPA: 8.8/10)</p>
+                <p className="resume-org">ST. Ann's College of Eng. & Tech (CGPA: 7.1/10)</p>
               </div>
 
-              <h4 style={{ marginTop: '1.5rem' }}><Award size={18} className="text-blue" /> Key Certifications</h4>
+              <div className="resume-item">
+                <div className="resume-item-header">
+                  <strong>Intermediate (MPC)</strong>
+                  <span className="badge-year">2018 - 2020</span>
+                </div>
+                <p className="resume-org">T.L.S.M.S Junior College (CGPA: 7.7/10)</p>
+              </div>
+
+              <h4 style={{ marginTop: '1.5rem' }}><Award size={18} className="text-blue" /> Certifications</h4>
               <ul className="resume-cert-list">
-                <li><CheckCircle2 size={16} className="text-green" /> AWS Certified Solutions Architect</li>
-                <li><CheckCircle2 size={16} className="text-green" /> Microsoft Certified Azure DB Admin</li>
-                <li><CheckCircle2 size={16} className="text-green" /> Oracle Certified Professional: MySQL 8.0</li>
-                <li><CheckCircle2 size={16} className="text-green" /> Meta Front-End Developer Certificate</li>
+                <li><CheckCircle2 size={16} className="text-green" /> Certified Python Automation Intern (Spiffy9)</li>
+                <li><CheckCircle2 size={16} className="text-green" /> Certified Python Full Stack Developer (Codegnan)</li>
+                <li><CheckCircle2 size={16} className="text-green" /> Certified Machine Learning Intern (Indian Servers)</li>
+                <li><CheckCircle2 size={16} className="text-green" /> Certified Internet of Things (NPTEL)</li>
               </ul>
             </div>
           </div>
@@ -99,7 +108,7 @@ export default function ResumeModal({ isOpen, onClose }) {
         <div className="modal-footer">
           <button className="btn-secondary" onClick={onClose}>Close Preview</button>
           <button className="btn-primary flex-center gap-2" onClick={handleDownload}>
-            <Download size={18} /> Download Document
+            <Download size={18} /> Download Official PDF
           </button>
         </div>
       </div>

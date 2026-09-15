@@ -213,7 +213,7 @@ export default function App() {
     {
       id: 3,
       title: 'PDF Automation & Data Processing',
-      category: 'app',
+      category: 'database',
       image: '/project_automation.jpg',
       description: 'Python automation solution for PDF data extraction, Regex-based parsing, validation, and transformation.',
       fullDescription: 'Python-based automation application developed to extract and process structured data from PDF documents while reducing repetitive manual processing tasks.',      highlights: [

@@ -108,13 +108,13 @@ export default function App() {
   const experienceData = [
     {
       role: 'Application Developer ',
-      company: 'Hallmark Gobal  Technology Ltd.',
+      company: 'Hallmark Gobal  Technology Ltd',
       period: 'July 2025 - Present',
       location: 'Hyderabad, India',
       highlights: [
-          'Developed business applications using KodeFast low-code/no-code platform leveraging drag-and drop development capabilities.',
-          'Configured forms, entities, workflows, and business rules for rapid application development.',
-          'Built automation-driven solutions to streamline workflows and improve business process efficiency.',
+          'Developed business applications using KodeFast low-code/no-code platform leveraging drag-and drop development capabilities',
+          'Configured forms, entities, workflows, and business rules for rapid application development',
+          'Built automation-driven solutions to streamline workflows and improve business process efficiency',
           'Developed scalable applications using reusable templates, visual configuration tools and platform modules',
   
       ],
@@ -126,11 +126,11 @@ export default function App() {
       period: 'Nov 2024- Feb 2025',
       location: 'Hyderabad, India',
       highlights: [
-        'Developed Python automation scripts for extracting and processing data from PDF documents.',
-        'Implemented Regex-based automation for pattern recognition, parsing, and structured data extractionn.',
-        'Automated repetitive document-processing tasks to improve efficiency and reduce manual intervention.',
-        'Worked on data validation, cleansing, and transformation as part of automation workflows.',
-        'Contributed to building reliable and scalable Python automation solutions for data processing.'
+        'Developed Python automation scripts for extracting and processing data from PDF documents',
+        'Implemented Regex-based automation for pattern recognition, parsing, and structured data extraction',
+        'Automated repetitive document-processing tasks to improve efficiency and reduce manual intervention',
+        'Worked on data validation, cleansing, and transformation as part of automation workflows',
+        'Contributed to building reliable and scalable Python automation solutions for data processing'
 
       ],
       tags: ['Python', 'HTML5', 'CSS3', 'Node.js', 'MongoDB', 'React.js', 'SQL Server']
@@ -191,7 +191,7 @@ export default function App() {
     {
       id: 2,
       title: 'Hackathon Management System ',
-      category: 'Web',
+      category: ['web', 'app'],
       image: '/project_hackathon.png',
       description: 'Full-stack platform for managing hackathon registration, team formation, project submission, judging, and results.',
       fullDescription: 'End-to-end full-stack web application designed to streamline the complete hackathon lifecycle for participants, organizers, judges, and sponsors.',
@@ -229,7 +229,7 @@ export default function App() {
     {
       id: 4,
       title: 'Rice Crop Disease Detection',
-      category: 'ML',
+      category: ['app', 'ml'],
       image: '/project_rice_crop.jpg',
       description: 'Deep learning system for detecting rice crop diseases from annotated leaf images using CNN and transfer learning.',
       fullDescription: 'Machine learning application trained on large datasets of rice crop images to accurately identify disease patterns using CNN models, transfer learning, and data augmentation techniques.',
@@ -240,14 +240,19 @@ export default function App() {
       ],
       tags:  ['Python', 'CNN', 'Deep Learning', 'TensorFlow', 'Transfer Learning'],
       dbTech: 'Image dataset with annotated crop disease classifications',
-      githubUrl: 'https://github.com/jagadeesh-vurata/cloud-health-portal',
+      githubUrl: 'https://github.com/jagadeesh014/Advance_Online_survey_Project',
       liveUrl: 'https://demo-cloudhealth.example.com'
     }
   ];
 
   const filteredProjects = projectFilter === 'all' 
     ? projectsData 
-    : projectsData.filter(p => p.category === projectFilter);
+    : projectsData.filter(p => {
+        if (Array.isArray(p.category)) {
+          return p.category.some(c => c.toLowerCase() === projectFilter.toLowerCase());
+        }
+        return p.category.toLowerCase() === projectFilter.toLowerCase();
+      });
 
   const certificationsData = [
     {
@@ -534,7 +539,9 @@ export default function App() {
                   className="project-image" 
                   onError={(e) => { e.target.onerror = null; e.target.src = '/project_analytics.jpg'; }}
                 />
-                <span className="project-category-badge">{project.category}</span>
+                <span className="project-category-badge">
+                  {Array.isArray(project.category) ? project.category.join(' / ') : project.category}
+                </span>
               </div>
               <div className="project-content">
                 <h3 className="project-title">{project.title}</h3>

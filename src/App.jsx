@@ -298,7 +298,7 @@ export default function App() {
       <nav className="navbar">
         <div className="navbar-container">
           <a href="#home" className="logo" onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}>
-            Jagadeesh
+            Vurata Jagadeesh
           </a>
 
           {/* Desktop Nav Links */}
@@ -375,7 +375,7 @@ export default function App() {
         <div className="hero-backdrop-glow"></div>
         
         <div className="status-badge">
-          <span className="status-dot"></span> Available for Full-Time & High-Impact Projects
+          <span className="status-dot"></span> Available For Full-Time & High-Impact Projects
         </div>
 
         <div className="hero-avatar-container">
@@ -760,7 +760,7 @@ export default function App() {
           </div>
 
           <p className="footer-copy">
-            © {new Date().getFullYear()} Vurata Jagadeesh. All rights reserved.
+            © {new Date().getFullYear()} Vurata Jagadeesh. All rights reserved
           </p>
         </div>
       </footer>

@@ -499,7 +499,7 @@ export default function App() {
               transform: `translate3d(${mousePos.x * -24}px, ${mousePos.y * -18}px, 20px)`
             }}
           >
-            <span>⚡</span> Python Automation
+            <span>⚡</span> Python Developer
           </div>
           <div 
             className="hero-parallax-badge badge-pos-2"
@@ -507,7 +507,7 @@ export default function App() {
               transform: `translate3d(${mousePos.x * 26}px, ${mousePos.y * -20}px, 25px)`
             }}
           >
-            <span>⚛️</span> React.js & Frontend
+            <span>⚛️</span> React.js & Frontend Developer
           </div>
           <div 
             className="hero-parallax-badge badge-pos-3"
@@ -515,7 +515,7 @@ export default function App() {
               transform: `translate3d(${mousePos.x * -18}px, ${mousePos.y * 22}px, 15px)`
             }}
           >
-            <span>🐬</span> MySQL & RDBS
+            <span>🐬</span> Application Developer
           </div>
           <div 
             className="hero-parallax-badge badge-pos-4"
@@ -523,7 +523,7 @@ export default function App() {
               transform: `translate3d(${mousePos.x * 22}px, ${mousePos.y * 18}px, 20px)`
             }}
           >
-            <span>🚀</span> KodeFast Low-Code
+            <span>🚀</span> Database Developer
           </div>
         </div>
         

@@ -212,7 +212,7 @@ export default function App() {
       role: 'Application Developer',
       company: 'Truefy Technologies',
       period: 'Feb 2024 - Feb 2025',
-      location: 'Hyderabad, India',
+      location: 'Bengaluru, India',
       highlights: [
         'Developed and maintained responsive web application components using HTML5, CSS3, JavaScript, and React.js.',
         'Designed and implemented user-friendly interfaces for online shopping functionalities.',
@@ -876,7 +876,7 @@ export default function App() {
                 </div>
                 <div className="contact-method-details">
                   <span className="contact-method-label">Phone Number</span>
-                  <p className="contact-method-val">+91 9014177672</p>
+                  <p className="contact-method-val">+91 90*****72</p>
                 </div>
                 <button 
                   className="copy-btn" 

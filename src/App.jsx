@@ -42,11 +42,23 @@ export default function App() {
   // Copy to Clipboard Feedback State
   const [copiedText, setCopiedText] = useState('');
 
-  // Handle active navigation state on window scroll
+  // 3D Parallax & Scroll States
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [scrollY, setScrollY] = useState(0);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  // Handle active navigation state, scroll progress, and parallax
   useEffect(() => {
     const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setScrollY(currentScrollY);
+
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = totalHeight > 0 ? (currentScrollY / totalHeight) * 100 : 0;
+      setScrollProgress(progress);
+
       const sections = ['home', 'experience', 'skills', 'projects', 'certifications', 'contact'];
-      const scrollPosition = window.scrollY + 200;
+      const scrollPosition = currentScrollY + 200;
 
       for (const section of sections) {
         const el = document.getElementById(section);
@@ -61,9 +73,61 @@ export default function App() {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // 3D Scroll Reveal Observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-3d-in');
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    const elements = document.querySelectorAll('.reveal-3d');
+    elements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, [projectFilter]);
+
+  // 3D Mouse Movement Tracking for Hero
+  const handleHeroMouseMove = (e) => {
+    const { clientX, clientY } = e;
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
+    setMousePos({
+      x: (clientX - centerX) / centerX,
+      y: (clientY - centerY) / centerY
+    });
+  };
+
+  const handleHeroMouseLeave = () => {
+    setMousePos({ x: 0, y: 0 });
+  };
+
+  // Interactive 3D Card Hover Physics
+  const handleCardTilt = (e) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * -9;
+    const rotateY = ((x - centerX) / centerX) * 9;
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(12px) scale3d(1.02, 1.02, 1.02)`;
+  };
+
+  const handleCardReset = (e) => {
+    const card = e.currentTarget;
+    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px) scale3d(1, 1, 1)`;
+  };
 
   const scrollToSection = (id) => {
     setActiveTab(id);
@@ -316,8 +380,29 @@ export default function App() {
 
   return (
     <div className="portfolio-app">
+      {/* 3D Ambient Glowing Orbs with Parallax Scroll Offset */}
+      <div className="parallax-orb-container">
+        <div 
+          className="parallax-orb parallax-orb-1" 
+          style={{ transform: `translate3d(0, ${scrollY * 0.14}px, 0)` }}
+        ></div>
+        <div 
+          className="parallax-orb parallax-orb-2" 
+          style={{ transform: `translate3d(0, ${scrollY * -0.1}px, 0)` }}
+        ></div>
+        <div 
+          className="parallax-orb parallax-orb-3" 
+          style={{ transform: `translate3d(0, ${scrollY * 0.06}px, 0)` }}
+        ></div>
+      </div>
+
       {/* 1. Header Navigation Bar */}
       <nav className="navbar">
+        {/* Top Scroll Progress Bar */}
+        <div className="scroll-progress-container">
+          <div className="scroll-progress-bar" style={{ width: `${scrollProgress}%` }}></div>
+        </div>
+
         <div className="navbar-container">
           <a href="#home" className="logo" onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}>
             Vurata Jagadeesh
@@ -392,15 +477,66 @@ export default function App() {
         </div>
       </nav>
 
-      {/* 2. Hero / Home Section */}
-      <section id="home" className="hero-section">
-        <div className="hero-backdrop-glow"></div>
+      {/* 2. Hero / Home Section with 3D Parallax */}
+      <section 
+        id="home" 
+        className="hero-section"
+        onMouseMove={handleHeroMouseMove}
+        onMouseLeave={handleHeroMouseLeave}
+      >
+        <div 
+          className="hero-backdrop-glow"
+          style={{
+            transform: `translate(calc(-50% + ${mousePos.x * 28}px), calc(-50% + ${mousePos.y * 28}px))`
+          }}
+        ></div>
+
+        {/* 3D Floating Parallax Badges */}
+        <div className="hero-floating-badges">
+          <div 
+            className="hero-parallax-badge badge-pos-1"
+            style={{
+              transform: `translate3d(${mousePos.x * -24}px, ${mousePos.y * -18}px, 20px)`
+            }}
+          >
+            <span>⚡</span> Python Automation
+          </div>
+          <div 
+            className="hero-parallax-badge badge-pos-2"
+            style={{
+              transform: `translate3d(${mousePos.x * 26}px, ${mousePos.y * -20}px, 25px)`
+            }}
+          >
+            <span>⚛️</span> React.js & Frontend
+          </div>
+          <div 
+            className="hero-parallax-badge badge-pos-3"
+            style={{
+              transform: `translate3d(${mousePos.x * -18}px, ${mousePos.y * 22}px, 15px)`
+            }}
+          >
+            <span>🐬</span> MySQL & RDBS
+          </div>
+          <div 
+            className="hero-parallax-badge badge-pos-4"
+            style={{
+              transform: `translate3d(${mousePos.x * 22}px, ${mousePos.y * 18}px, 20px)`
+            }}
+          >
+            <span>🚀</span> KodeFast Low-Code
+          </div>
+        </div>
         
-        <div className="status-badge">
+        <div className="status-badge reveal-3d">
           <span className="status-dot"></span> Available For Full-Time & High-Impact Projects
         </div>
 
-        <div className="hero-avatar-container">
+        <div 
+          className="hero-avatar-container"
+          style={{
+            transform: `perspective(1000px) rotateY(${mousePos.x * 12}deg) rotateX(${mousePos.y * -12}deg)`
+          }}
+        >
           <div className="avatar-pulse-ring"></div>
           <div className="avatar-pulse-ring-outer"></div>
           <div className="hero-avatar-wrapper">
@@ -408,22 +544,39 @@ export default function App() {
               <img src="/avatar.jpg" alt="Vurata Jagadeesh" className="hero-avatar" />
             </div>
           </div>
-          <div className="avatar-floating-badge">
+          <div 
+            className="avatar-floating-badge"
+            style={{
+              transform: `translate3d(${mousePos.x * 10}px, ${mousePos.y * 10}px, 15px)`
+            }}
+          >
             <Sparkles size={14} className="text-blue" /> Application & Python Developer
           </div>
         </div>
 
-        <h1 className="hero-title">Vurata Jagadeesh</h1>
+        <h1 
+          className="hero-title-3d reveal-3d"
+          style={{
+            transform: `perspective(1000px) rotateX(${mousePos.y * -6}deg) rotateY(${mousePos.x * 6}deg)`
+          }}
+        >
+          Vurata Jagadeesh
+        </h1>
         
-        <div className="hero-role">
+        <div 
+          className="hero-role-3d text-shimmer reveal-3d"
+          style={{
+            transform: `perspective(1000px) rotateX(${mousePos.y * -4}deg) rotateY(${mousePos.x * 4}deg)`
+          }}
+        >
           Application Developer | Python Automation | Web Developer
         </div>
 
-        <p className="hero-desc">
+        <p className="hero-desc reveal-3d">
           Results-driven professional with 2.5 years of experience in application development, Python automation, and customer data management. Skilled in developing web applications, implementing business workflows, and streamlining operational processes.
         </p>
 
-        <div className="hero-actions">
+        <div className="hero-actions reveal-3d">
           <button className="btn-primary flex-center gap-2" onClick={() => setIsResumeOpen(true)}>
             <Download size={18} /> Download Resume
           </button>
@@ -433,11 +586,16 @@ export default function App() {
         </div>
       </section>
 
-      {/* Stats Counter Bar */}
-      <div className="stats-container">
+      {/* Stats Counter Bar with 3D Hover Tilt */}
+      <div className="stats-container reveal-3d">
         <div className="stats-grid">
           {statsData.map((stat, idx) => (
-            <div className="stat-item" key={idx}>
+            <div 
+              className="stat-item card-3d-tilt" 
+              key={idx}
+              onMouseMove={handleCardTilt}
+              onMouseLeave={handleCardReset}
+            >
               <span className="stat-number">{stat.number}</span>
               <span className="stat-label">{stat.label}</span>
             </div>
@@ -445,11 +603,17 @@ export default function App() {
         </div>
       </div>
 
-      {/* 3. Experience Section */}
+      {/* 3. Experience Section with 3D Parallax Text & Cards */}
       <section id="experience" className="section">
-        <div className="section-header">
+        <div className="section-header reveal-3d">
+          <span 
+            className="section-watermark" 
+            style={{ transform: `translate(-50%, calc(-50% + ${(scrollY - 850) * 0.12}px))` }}
+          >
+            CAREER
+          </span>
           <span className="section-tag">Career History</span>
-          <h2 className="section-title">Work Experience</h2>
+          <h2 className="section-title text-shimmer">Work Experience</h2>
           <p className="section-subtitle">Proven track record building enterprise applications and optimizing databases</p>
         </div>
 
@@ -457,7 +621,11 @@ export default function App() {
           {experienceData.map((item, idx) => (
             <div className="timeline-item" key={idx}>
               <div className="timeline-dot"></div>
-              <div className="timeline-card">
+              <div 
+                className="timeline-card card-3d-tilt reveal-3d"
+                onMouseMove={handleCardTilt}
+                onMouseLeave={handleCardReset}
+              >
                 <div className="timeline-header">
                   <div>
                     <h3 className="timeline-role">{item.role}</h3>
@@ -483,17 +651,28 @@ export default function App() {
         </div>
       </section>
 
-      {/* 4. Skills Section */}
+      {/* 4. Skills Section with 3D Parallax */}
       <section id="skills" className="section">
-        <div className="section-header">
+        <div className="section-header reveal-3d">
+          <span 
+            className="section-watermark" 
+            style={{ transform: `translate(-50%, calc(-50% + ${(scrollY - 1450) * 0.12}px))` }}
+          >
+            EXPERTISE
+          </span>
           <span className="section-tag">Technical Proficiency</span>
-          <h2 className="section-title">Skills & Expertise</h2>
+          <h2 className="section-title text-shimmer">Skills & Expertise</h2>
           <p className="section-subtitle">Core technologies, frameworks, databases, and development tools</p>
         </div>
 
         <div className="skills-grid">
           {skillsData.map((cat, idx) => (
-            <div className="skill-card" key={idx}>
+            <div 
+              className="skill-card card-3d-tilt reveal-3d" 
+              key={idx}
+              onMouseMove={handleCardTilt}
+              onMouseLeave={handleCardReset}
+            >
               <div className="skill-card-icon">
                 {cat.icon}
               </div>
@@ -516,15 +695,21 @@ export default function App() {
         </div>
       </section>
 
-      {/* 5. Projects Section */}
+      {/* 5. Projects Section with 3D Parallax */}
       <section id="projects" className="section">
-        <div className="section-header">
+        <div className="section-header reveal-3d">
+          <span 
+            className="section-watermark" 
+            style={{ transform: `translate(-50%, calc(-50% + ${(scrollY - 2150) * 0.12}px))` }}
+          >
+            PORTFOLIO
+          </span>
           <span className="section-tag">Featured Work</span>
-          <h2 className="section-title">Projects Portfolio</h2>
+          <h2 className="section-title text-shimmer">Projects Portfolio</h2>
           <p className="section-subtitle">Explore recent application, web, and database developments</p>
         </div>
 
-        <div className="project-filters">
+        <div className="project-filters reveal-3d">
           <button 
             className={`filter-btn ${projectFilter === 'all' ? 'active' : ''}`}
             onClick={() => setProjectFilter('all')}
@@ -553,7 +738,12 @@ export default function App() {
 
         <div className="projects-grid">
           {filteredProjects.map((project) => (
-            <div className="project-card" key={project.id}>
+            <div 
+              className="project-card card-3d-tilt reveal-3d" 
+              key={project.id}
+              onMouseMove={handleCardTilt}
+              onMouseLeave={handleCardReset}
+            >
               <div className="project-image-wrapper">
                 <img 
                   src={project.image} 
@@ -597,17 +787,28 @@ export default function App() {
         </div>
       </section>
 
-      {/* 6. Certifications Section */}
+      {/* 6. Certifications Section with 3D Parallax */}
       <section id="certifications" className="section">
-        <div className="section-header">
+        <div className="section-header reveal-3d">
+          <span 
+            className="section-watermark" 
+            style={{ transform: `translate(-50%, calc(-50% + ${(scrollY - 2850) * 0.12}px))` }}
+          >
+            CREDENTIALS
+          </span>
           <span className="section-tag">Credentials</span>
-          <h2 className="section-title">Certifications & Achievements</h2>
+          <h2 className="section-title text-shimmer">Certifications & Achievements</h2>
           <p className="section-subtitle">Industry verified certifications in cloud, database administration, and web technologies</p>
         </div>
 
         <div className="certifications-grid">
           {certificationsData.map((cert, idx) => (
-            <div className="cert-card" key={idx}>
+            <div 
+              className="cert-card card-3d-tilt reveal-3d" 
+              key={idx}
+              onMouseMove={handleCardTilt}
+              onMouseLeave={handleCardReset}
+            >
               <div className="cert-icon-wrapper">
                 {cert.icon}
               </div>
@@ -622,15 +823,21 @@ export default function App() {
         </div>
       </section>
 
-      {/* 7. Contact Us Section */}
+      {/* 7. Contact Us Section with 3D Parallax */}
       <section id="contact" className="section">
-        <div className="section-header">
+        <div className="section-header reveal-3d">
+          <span 
+            className="section-watermark" 
+            style={{ transform: `translate(-50%, calc(-50% + ${(scrollY - 3400) * 0.12}px))` }}
+          >
+            CONNECT
+          </span>
           <span className="section-tag">Get In Touch</span>
-          <h2 className="section-title">Contact Us</h2>
+          <h2 className="section-title text-shimmer">Contact Us</h2>
           <p className="section-subtitle">Have a project in mind or want to connect? Send a message!</p>
         </div>
 
-        <div className="contact-container">
+        <div className="contact-container reveal-3d">
           <div className="contact-info-col">
             <h3>Let's talk about your next project</h3>
             <p>
@@ -638,7 +845,11 @@ export default function App() {
             </p>
 
             <div className="contact-methods">
-              <div className="contact-method-card">
+              <div 
+                className="contact-method-card card-3d-tilt"
+                onMouseMove={handleCardTilt}
+                onMouseLeave={handleCardReset}
+              >
                 <div className="contact-icon-box">
                   <Mail size={20} />
                 </div>
@@ -655,7 +866,11 @@ export default function App() {
                 </button>
               </div>
 
-              <div className="contact-method-card">
+              <div 
+                className="contact-method-card card-3d-tilt"
+                onMouseMove={handleCardTilt}
+                onMouseLeave={handleCardReset}
+              >
                 <div className="contact-icon-box">
                   <Phone size={20} />
                 </div>
@@ -672,7 +887,11 @@ export default function App() {
                 </button>
               </div>
 
-              <div className="contact-method-card">
+              <div 
+                className="contact-method-card card-3d-tilt"
+                onMouseMove={handleCardTilt}
+                onMouseLeave={handleCardReset}
+              >
                 <div className="contact-icon-box">
                   <MapPin size={20} />
                 </div>

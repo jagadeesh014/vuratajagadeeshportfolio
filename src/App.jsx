@@ -99,72 +99,101 @@ export default function App() {
 
   // Data Arrays
   const statsData = [
-    { number: '1.4+', label: 'Years Experience' },
+    { number: '2.5+', label: 'Years Experience' },
     { number: '5+', label: 'Projects Delivered' },
-    { number: '6+', label: 'Certifications' },
-    { number: '99.9%', label: 'Database Uptime' },
+    { number: '4+', label: 'Certifications' },
+    { number: '99.9%', label: 'Operational Quality' },
   ];
 
   const experienceData = [
     {
-      role: 'Application Developer ',
-      company: 'Hallmark Gobal  Technology Ltd',
-      period: 'July 2025 - Present',
+      role: 'Application Developer',
+      company: 'Hallmark Global Technologies Ltd',
+      period: 'July 2025 - June 2026',
       location: 'Hyderabad, India',
       highlights: [
-          'Developed business applications using KodeFast low-code/no-code platform leveraging drag-and drop development capabilities',
-          'Configured forms, entities, workflows, and business rules for rapid application development',
-          'Built automation-driven solutions to streamline workflows and improve business process efficiency',
-          'Developed scalable applications using reusable templates, visual configuration tools and platform modules',
-  
+        'Developed business applications using the KodeFast low-code/no-code platform.',
+        'Configured application forms, entities, workflows, and business rules.',
+        'Designed and customized application modules using drag-and-drop functionality.',
+        'Implemented workflow automation to streamline business processes.',
+        'Created reusable templates and application components.',
+        'Configured data entities and managed application data.',
+        'Developed business logic to automate operational activities.',
+        'Customized application features based on business requirements.',
+        'Performed application testing, debugging, and issue resolution.',
+        'Collaborated with team members to deliver scalable business application solutions.'
       ],
-      tags: ['Python', 'MySQL', 'HTML5', 'CSS3', 'SQL Server', 'React.js',]
+      tags: ['KodeFast', 'Low-Code / No-Code', 'Workflow Automation', 'Business Rules', 'Forms & Entities']
     },
     {
-      role: 'Software Engineer',
-      company: 'Spiffy 9',
-      period: 'Nov 2024- Feb 2025',
+      role: 'Customer Data Management Executive',
+      company: 'HDB Financial Services',
+      period: 'March 2025 - May 2025',
       location: 'Hyderabad, India',
       highlights: [
-        'Developed Python automation scripts for extracting and processing data from PDF documents',
-        'Implemented Regex-based automation for pattern recognition, parsing, and structured data extraction',
-        'Automated repetitive document-processing tasks to improve efficiency and reduce manual intervention',
-        'Worked on data validation, cleansing, and transformation as part of automation workflows',
-        'Contributed to building reliable and scalable Python automation solutions for data processing'
-
+        'Collected customer information for financial product-related activities.',
+        'Gathered and organized customer data from available sources.',
+        'Verified customer details to maintain data accuracy.',
+        'Prepared customer databases for telecalling operations.',
+        'Shared customer leads with telecalling executives for follow-up.',
+        'Categorized customer information based on business requirements.',
+        'Maintained and updated customer records in Excel and internal systems.',
+        'Coordinated with telecalling teams regarding customer data requirements.',
+        'Supported daily data collection, processing, and lead management activities.',
+        'Ensured timely sharing of accurate customer information to support customer outreach operations.'
       ],
-      tags: ['Python', 'HTML5', 'CSS3', 'Node.js', 'MongoDB', 'React.js', 'SQL Server']
+      tags: ['Customer Data Management', 'Database Preparation', 'Data Verification', 'Lead Management', 'Excel']
     },
+    {
+      role: 'Application Developer',
+      company: 'Truefy Technologies',
+      period: 'Feb 2024 - Feb 2025',
+      location: 'Hyderabad, India',
+      highlights: [
+        'Developed and maintained responsive web application components using HTML5, CSS3, JavaScript, and React.js.',
+        'Designed and implemented user-friendly interfaces for online shopping functionalities.',
+        'Developed product management features, including product listing, search, filtering, and categorization.',
+        'Implemented shopping cart functionality to manage product selection and quantity updates.',
+        'Worked on customer registration, login, and profile management modules.',
+        'Integrated frontend components with Python-based backend services and APIs.',
+        'Managed application data using MySQL, including customer, product, order, and inventory records.',
+        'Collaborated with team members in Agile methodology to understand requirements and deliver application enhancements.'
+      ],
+      tags: ['React.js', 'JavaScript', 'HTML5', 'CSS3', 'Python', 'MySQL', 'Agile']
+    }
   ];
 
   const skillsData = [
     {
-      category: 'Application Development',
+      category: 'Application & Python Development',
       icon: <Terminal size={24} />,
       skills: [
-        { name: 'Python', level: 85 },
-        { name: 'REST APIs & Microservices', level: 92 }
+        { name: 'Python', level: 92 },
+        { name: 'Low-Code / No-Code (KodeFast)', level: 92 },
+        { name: 'REST APIs & Backend Integration', level: 88 },
+        { name: 'Workflow & Process Automation', level: 90 }
       ]
     },
     {
-      category: 'Web Development',
+      category: 'Frontend & Web Development',
       icon: <Globe size={24} />,
       skills: [
-        { name: 'JavaScript ', level: 95 },
-        { name: 'React.js & Vite', level: 92 },
-        { name: 'HTML5 / CSS3 / Grid / Flexbox', level: 98 },
-        { name: 'Responsive Web Design', level: 95 }
+        { name: 'React.js', level: 90 },
+        { name: 'JavaScript (ES6+)', level: 92 },
+        { name: 'HTML5 & CSS3', level: 95 },
+        { name: 'Responsive Web Design', level: 92 }
       ]
     },
     {
-      category: 'Database Development',
+      category: 'Database & RDBMS',
       icon: <Database size={24} />,
       skills: [
-        { name: 'PostgreSQL & MySQL', level: 95 },
-        { name: 'MongoDB (NoSQL)', level: 84 }
+        { name: 'MySQL', level: 92 },
+        { name: 'SQL Queries', level: 90 },
+        { name: 'RDBS (Relational Databases)', level: 88 },
+        { name: 'Customer Data Management & Excel', level: 90 }
       ]
-    },
-   
+    }
   ];
 
   const projectsData = [
@@ -258,37 +287,30 @@ export default function App() {
     {
       title: 'Python Automation Intern',
       issuer: 'Spiffy9',
-      date: 'Certification Completed',
-      credId: 'Spiffy9293i82',
+      date: 'Certified Certification',
+      credId: 'Spiffy9-Auto-Cert',
       icon: <Award size={28} />
     },
     {
       title: 'Python Full Stack Developer Intern',
       issuer: 'Codegnan',
-      date: 'Issued July 2023',
-      credId: 'Ikxk-VJ51tp2023',
+      date: 'Certified Certification',
+      credId: 'Codegnan-FullStack',
       icon: <Database size={28} />
     },
     {
       title: 'Machine Learning Intern',
       issuer: 'Indian Servers',
-      date: 'Issued July 2022',
-      credId: 'IndServ22a999 ',
+      date: 'Certified Certification',
+      credId: 'IndianServers-ML',
       icon: <Award size={28} />
     },
     {
       title: 'Internet of Things',
       issuer: 'NPTEL',
-      date: 'Issued Oct 2023',
+      date: 'Certified Certification',
       credId: 'NPTEL-IOT',
       icon: <Globe size={28} />
-    },
-    {
-      title: 'Web Technologies',
-      issuer: 'APT IT Solutions',
-      date: 'Issued April 2024',
-      credId: 'PG-SPEC-773120',
-      icon: <Database size={28} />
     }
   ];
 
@@ -387,18 +409,18 @@ export default function App() {
             </div>
           </div>
           <div className="avatar-floating-badge">
-            <Sparkles size={14} className="text-blue" /> Software Developer
+            <Sparkles size={14} className="text-blue" /> Application & Python Developer
           </div>
         </div>
 
         <h1 className="hero-title">Vurata Jagadeesh</h1>
         
         <div className="hero-role">
-          Application Developer | Web Developer | Database Developer
+          Application Developer | Python Automation | Web Developer
         </div>
 
         <p className="hero-desc">
-          Developing robust applications, responsive websites, and efficient database solutions to deliver seamless digital experiences.
+          Results-driven professional with 2.5 years of experience in application development, Python automation, and customer data management. Skilled in developing web applications, implementing business workflows, and streamlining operational processes.
         </p>
 
         <div className="hero-actions">
@@ -622,11 +644,11 @@ export default function App() {
                 </div>
                 <div className="contact-method-details">
                   <span className="contact-method-label">Email Address</span>
-                  <p className="contact-method-val">jagadeeshv0114@gmail.com</p>
+                  <p className="contact-method-val">jagadeeshv514@gmail.com</p>
                 </div>
                 <button 
                   className="copy-btn" 
-                  onClick={() => copyToClipboard('jagadeeshv0114@gmail.com', 'email')}
+                  onClick={() => copyToClipboard('jagadeeshv514@gmail.com', 'email')}
                   title="Copy email"
                 >
                   {copiedText === 'email' ? <Check size={18} className="text-green" /> : <Copy size={18} />}
@@ -741,20 +763,20 @@ export default function App() {
             Vurata Jagadeesh
           </a>
           <p className="hero-desc" style={{ marginBottom: 0 }}>
-            Application Developer • Web Developer • Database Developer
+            Application Developer • Python Developer • Web Developer
           </p>
 
           <div className="footer-socials">
             <a href="https://github.com" target="_blank" rel="noreferrer" className="social-icon-btn" aria-label="GitHub" title="GitHub">
               <Code size={18} />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="social-icon-btn" aria-label="LinkedIn" title="LinkedIn">
+            <a href="https://www.linkedin.com/in/vurata-jagadeesh/" target="_blank" rel="noreferrer" className="social-icon-btn" aria-label="LinkedIn" title="LinkedIn">
               <Globe size={18} />
             </a>
             <a href="https://twitter.com" target="_blank" rel="noreferrer" className="social-icon-btn" aria-label="Twitter" title="Twitter">
               <Share2 size={18} />
             </a>
-            <a href="mailto:jagadeeshv0114@gmail.com" className="social-icon-btn" aria-label="Email" title="Email">
+            <a href="mailto:jagadeeshv514@gmail.com" className="social-icon-btn" aria-label="Email" title="Email">
               <Mail size={18} />
             </a>
           </div>
